@@ -1,0 +1,37 @@
+#服务配置
+server:
+  #端口号
+  port: 8081
+  #Session超时时间
+  session:
+    timeout: 300
+
+
+#数据源设置
+spring:
+  datasource:
+      #数据库连接
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://49.4.69.128:1433;DatabaseName=copy_data
+      username: sa
+      password: kmxy@128
+    #连接池配置
+      initialSize: 5
+      maxActive: 50
+      minIdle: 5
+
+logging:
+  config: classpath:logback.xml
+  level:
+    com:
+      cn:
+        dao: trace
+
+
+
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package:  com.cn.model.pojo.*
+
